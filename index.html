@@ -143,6 +143,14 @@
 <body>
   <h1>Libros de Brandon Sanderson</h1>
 
+  <!-- Controles -->
+  <div style="text-align: center; margin: 20px 0;">
+    <label style="display: inline-flex; align-items: center; gap: 8px; font-size: 1.1rem; cursor: pointer;">
+      <input type="checkbox" id="mostrarSecundarios" checked style="transform: scale(1.2);">
+      Mostrar libros secundarios
+    </label>
+  </div>
+
   <!-- Contenedor principal de las sagas -->
   <div class="sagas-container">
     <!-- Overlay para las flechas -->
@@ -167,34 +175,34 @@
   <script>
     const datos = {
       "libros": [
-        {"id": 1, "title": "Elantris", "saga": "Elantris", "is_spinoff": false, "is_read": "unread"},
-        {"id": 2, "title": "The Hope of Elantris", "saga": "Elantris", "is_spinoff": true, "is_read": "unread"},
-        {"id": 3, "title": "The Final Empire", "saga": "Mistborn", "is_spinoff": false, "is_read": "unread"},
-        {"id": 4, "title": "The Well of Ascension", "saga": "Mistborn", "is_spinoff": false, "is_read": "unread"},
-        {"id": 5, "title": "The Hero of Ages", "saga": "Mistborn", "is_spinoff": false, "is_read": "unread"},
-        {"id": 6, "title": "Warbreaker", "saga": "Warbreaker", "is_spinoff": false, "is_read": "unread"},
-        {"id": 7, "title": "The Way of Kings", "saga": "Archivo de las Tormentas", "is_spinoff": false, "is_read": "unread"},
-        {"id": 8, "title": "The Alloy of Law", "saga": "Mistborn", "is_spinoff": false, "is_read": "unread"},
-        {"id": 9, "title": "The Eleventh Metal", "saga": "Mistborn", "is_spinoff": true, "is_read": "unread"},
-        {"id": 10, "title": "The Emperor's Soul", "saga": "Elantris", "is_spinoff": true, "is_read": "unread"},
-        {"id": 11, "title": "Shadows for Silence In the Forest of Hell", "saga": "Otros", "is_spinoff": true, "is_read": "unread"},
-        {"id": 12, "title": "Words of Radiance", "saga": "Archivo de las Tormentas", "is_spinoff": false, "is_read": "unread"},
-        {"id": 13, "title": "Allomancer Jak", "saga": "Mistborn", "is_spinoff": true, "is_read": "unread"},
-        {"id": 14, "title": "Shadows of Self", "saga": "Mistborn", "is_spinoff": false, "is_read": "unread"},
-        {"id": 15, "title": "The Bands of Mourning", "saga": "Mistborn", "is_spinoff": false, "is_read": "unread"},
-        {"id": 16, "title": "Mistborn: Secret History", "saga": "Mistborn", "is_spinoff": true, "is_read": "unread"},
-        {"id": 17, "title": "White Sand", "saga": "Otros", "is_spinoff": false, "is_read": "unread"},
-        {"id": 18, "title": "Arcanum Unbounded essays", "saga": "Otros", "is_spinoff": true, "is_read": "unread"},
-        {"id": 19, "title": "Edgedancer", "saga": "Archivo de las Tormentas", "is_spinoff": true, "is_read": "unread"},
-        {"id": 20, "title": "Oathbringer", "saga": "Archivo de las Tormentas", "is_spinoff": false, "is_read": "unread"},
-        {"id": 21, "title": "Dawnshard", "saga": "Archivo de las Tormentas", "is_spinoff": true, "is_read": "unread"},
-        {"id": 22, "title": "Rhythm of War", "saga": "Archivo de las Tormentas", "is_spinoff": false, "is_read": "unread"},
-        {"id": 23, "title": "The Lost Metal", "saga": "Mistborn", "is_spinoff": false, "is_read": "unread"},
-        {"id": 24, "title": "Tress of the Emerald Sea", "saga": "Otros", "is_spinoff": false, "is_read": "unread"},
-        {"id": 25, "title": "Yumi and the Nightmare Painter", "saga": "Otros", "is_spinoff": false, "is_read": "unread"},
-        {"id": 26, "title": "The Sunlit Man", "saga": "Archivo de las Tormentas", "is_spinoff": true, "is_read": "unread"},
-        {"id": 27, "title": "Wind and Truth", "saga": "Archivo de las Tormentas", "is_spinoff": false, "is_read": "unread"},
-        {"id": 28, "title": "Isles of the Emberdark", "saga": "Otros", "is_spinoff": true, "is_read": "unread"}
+        {"id": 1, "title": "Elantris", "saga": "Elantris", "is_secundario": false, "is_read": "unread"},
+        {"id": 2, "title": "The Hope of Elantris", "saga": "Elantris", "is_secundario": true, "is_read": "unread"},
+        {"id": 3, "title": "The Final Empire", "saga": "Mistborn", "is_secundario": false, "is_read": "unread"},
+        {"id": 4, "title": "The Well of Ascension", "saga": "Mistborn", "is_secundario": false, "is_read": "unread"},
+        {"id": 5, "title": "The Hero of Ages", "saga": "Mistborn", "is_secundario": false, "is_read": "unread"},
+        {"id": 6, "title": "Warbreaker", "saga": "Otros", "is_secundario": false, "is_read": "unread"},
+        {"id": 7, "title": "The Way of Kings", "saga": "Archivo de las Tormentas", "is_secundario": false, "is_read": "unread"},
+        {"id": 8, "title": "The Alloy of Law", "saga": "Mistborn", "is_secundario": false, "is_read": "unread"},
+        {"id": 9, "title": "The Eleventh Metal", "saga": "Mistborn", "is_secundario": true, "is_read": "unread"},
+        {"id": 10, "title": "The Emperor's Soul", "saga": "Elantris", "is_secundario": true, "is_read": "unread"},
+        {"id": 11, "title": "Shadows for Silence In the Forest of Hell", "saga": "Otros", "is_secundario": true, "is_read": "unread"},
+        {"id": 12, "title": "Words of Radiance", "saga": "Archivo de las Tormentas", "is_secundario": false, "is_read": "unread"},
+        {"id": 13, "title": "Allomancer Jak", "saga": "Mistborn", "is_secundario": true, "is_read": "unread"},
+        {"id": 14, "title": "Shadows of Self", "saga": "Mistborn", "is_secundario": false, "is_read": "unread"},
+        {"id": 15, "title": "The Bands of Mourning", "saga": "Mistborn", "is_secundario": false, "is_read": "unread"},
+        {"id": 16, "title": "Mistborn: Secret History", "saga": "Mistborn", "is_secundario": true, "is_read": "unread"},
+        {"id": 17, "title": "White Sand", "saga": "Otros", "is_secundario": false, "is_read": "unread"},
+        {"id": 18, "title": "Arcanum Unbounded essays", "saga": "Otros", "is_secundario": true, "is_read": "unread"},
+        {"id": 19, "title": "Edgedancer", "saga": "Archivo de las Tormentas", "is_secundario": true, "is_read": "unread"},
+        {"id": 20, "title": "Oathbringer", "saga": "Archivo de las Tormentas", "is_secundario": false, "is_read": "unread"},
+        {"id": 21, "title": "Dawnshard", "saga": "Archivo de las Tormentas", "is_secundario": true, "is_read": "unread"},
+        {"id": 22, "title": "Rhythm of War", "saga": "Archivo de las Tormentas", "is_secundario": false, "is_read": "unread"},
+        {"id": 23, "title": "The Lost Metal", "saga": "Mistborn", "is_secundario": false, "is_read": "unread"},
+        {"id": 24, "title": "Tress of the Emerald Sea", "saga": "Otros", "is_secundario": true, "is_read": "unread"},
+        {"id": 25, "title": "Yumi and the Nightmare Painter", "saga": "Otros", "is_secundario": true, "is_read": "unread"},
+        {"id": 26, "title": "The Sunlit Man", "saga": "Archivo de las Tormentas", "is_secundario": true, "is_read": "unread"},
+        {"id": 27, "title": "Wind and Truth", "saga": "Archivo de las Tormentas", "is_secundario": false, "is_read": "unread"},
+        {"id": 28, "title": "Isles of the Emberdark", "saga": "Otros", "is_secundario": true, "is_read": "unread"}
       ]
     };
 
@@ -260,7 +268,7 @@
         // Crear contenedor para el contenido del libro
         const contenidoLibro = document.createElement('div');
         contenidoLibro.classList.add('book-content');
-        contenidoLibro.textContent = `${libro.id} - ${libro.title}${libro.is_spinoff ? ' (Spin-off)' : ''}`;
+        contenidoLibro.textContent = `${libro.id} - ${libro.title}${libro.is_secundario ? ' (Secundario)' : ''}`;
 
         // Agregamos la clase según el estado de lectura
         if (libro.is_read === 'read') {
@@ -325,6 +333,28 @@
     });
 
     guardarEstados();
+
+    // Funcionalidad del checkbox para mostrar/ocultar libros secundarios
+    const checkboxSecundarios = document.getElementById('mostrarSecundarios');
+    
+    function toggleLibrosSecundarios() {
+      const mostrar = checkboxSecundarios.checked;
+      const librosSecundarios = document.querySelectorAll('.book-item');
+      
+      librosSecundarios.forEach(elemento => {
+        const libroId = parseInt(elemento.querySelector('.book-content').textContent.split(' - ')[0]);
+        const libro = datos.libros.find(l => l.id === libroId);
+        
+        if (libro && libro.is_secundario) {
+          elemento.style.display = mostrar ? 'flex' : 'none';
+        }
+      });
+    }
+    
+    checkboxSecundarios.addEventListener('change', toggleLibrosSecundarios);
+    
+    // Aplicar estado inicial
+    toggleLibrosSecundarios();
 
     // Ordenar todos los libros por ID
     const librosOrdenados = [...datos.libros].sort((a, b) => a.id - b.id);
