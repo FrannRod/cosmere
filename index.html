@@ -141,14 +141,25 @@
   </style>
 </head>
 <body>
-  <h1>Libros de Brandon Sanderson</h1>
+  <h1 id="tituloPrincipal">Libros de Brandon Sanderson</h1>
 
   <!-- Controles -->
-  <div style="text-align: center; margin: 20px 0;">
-    <label style="display: inline-flex; align-items: center; gap: 8px; font-size: 1.1rem; cursor: pointer;">
-      <input type="checkbox" id="mostrarSecundarios" checked style="transform: scale(1.2);">
-      Mostrar libros secundarios
-    </label>
+  <div style="text-align: center; margin: 20px 0; display: flex; justify-content: center; gap: 30px; flex-wrap: wrap;">
+    <div>
+      <label style="display: inline-flex; align-items: center; gap: 8px; font-size: 1.1rem; cursor: pointer;">
+        <input type="checkbox" id="mostrarSecundarios" checked style="transform: scale(1.2);">
+        <span id="textoMostrarSecundarios">Mostrar libros secundarios</span>
+      </label>
+    </div>
+    <div>
+      <label style="display: inline-flex; align-items: center; gap: 8px; font-size: 1.1rem;">
+        <span id="textoIdioma">Idioma:</span>
+        <select id="selectorIdioma" style="padding: 5px 10px; font-size: 1rem; border-radius: 4px; border: 1px solid #ccc;">
+          <option value="es">Español</option>
+          <option value="en">English</option>
+        </select>
+      </label>
+    </div>
   </div>
 
   <!-- Contenedor principal de las sagas -->
@@ -167,46 +178,156 @@
     font-size: 0.9rem;
     color: #6c757d;
   ">
-    <p><strong>Cosmere - Guía de Lectura Interactiva</strong></p>
-    <p>⚠️ <strong>Aviso Legal:</strong> NO soy el autor de los libros de Brandon Sanderson. Todos los derechos sobre los libros pertenecen a Brandon Sanderson y sus editores. Solo tengo derechos sobre el código de esta aplicación web.</p>
-    <p><a href="https://github.com/FrannRod/cosmere" style="color: #007bff; text-decoration: none;">📖 Ver README completo</a> | <em>Cosmere es una marca registrada de Brandon Sanderson</em></p>
+    <p><strong id="tituloFooter">Cosmere - Guía de Lectura Interactiva</strong></p>
+    <p id="avisoLegal">⚠️ <strong>Aviso Legal:</strong> NO soy el autor de los libros de Brandon Sanderson. Todos los derechos sobre los libros pertenecen a Brandon Sanderson y sus editores. Solo tengo derechos sobre el código de esta aplicación web.</p>
+    <p><a href="https://github.com/FrannRod/cosmere" style="color: #007bff; text-decoration: none;" id="linkReadme">📖 Ver README completo</a> | <em id="marcaRegistrada">Cosmere es una marca registrada de Brandon Sanderson</em></p>
   </footer>
 
   <script>
     const datos = {
       "libros": [
-        {"id": 1, "title": "Elantris", "saga": "Elantris", "is_secundario": false, "is_read": "unread"},
-        {"id": 2, "title": "The Hope of Elantris", "saga": "Elantris", "is_secundario": true, "is_read": "unread"},
-        {"id": 3, "title": "The Final Empire", "saga": "Mistborn", "is_secundario": false, "is_read": "unread"},
-        {"id": 4, "title": "The Well of Ascension", "saga": "Mistborn", "is_secundario": false, "is_read": "unread"},
-        {"id": 5, "title": "The Hero of Ages", "saga": "Mistborn", "is_secundario": false, "is_read": "unread"},
-        {"id": 6, "title": "Warbreaker", "saga": "Otros", "is_secundario": false, "is_read": "unread"},
-        {"id": 7, "title": "The Way of Kings", "saga": "Archivo de las Tormentas", "is_secundario": false, "is_read": "unread"},
-        {"id": 8, "title": "The Alloy of Law", "saga": "Mistborn", "is_secundario": false, "is_read": "unread"},
-        {"id": 9, "title": "The Eleventh Metal", "saga": "Mistborn", "is_secundario": true, "is_read": "unread"},
-        {"id": 10, "title": "The Emperor's Soul", "saga": "Elantris", "is_secundario": true, "is_read": "unread"},
-        {"id": 11, "title": "Shadows for Silence In the Forest of Hell", "saga": "Otros", "is_secundario": true, "is_read": "unread"},
-        {"id": 12, "title": "Words of Radiance", "saga": "Archivo de las Tormentas", "is_secundario": false, "is_read": "unread"},
-        {"id": 13, "title": "Allomancer Jak", "saga": "Mistborn", "is_secundario": true, "is_read": "unread"},
-        {"id": 14, "title": "Shadows of Self", "saga": "Mistborn", "is_secundario": false, "is_read": "unread"},
-        {"id": 15, "title": "The Bands of Mourning", "saga": "Mistborn", "is_secundario": false, "is_read": "unread"},
-        {"id": 16, "title": "Mistborn: Secret History", "saga": "Mistborn", "is_secundario": true, "is_read": "unread"},
-        {"id": 17, "title": "White Sand", "saga": "Otros", "is_secundario": false, "is_read": "unread"},
-        {"id": 18, "title": "Arcanum Unbounded essays", "saga": "Otros", "is_secundario": true, "is_read": "unread"},
-        {"id": 19, "title": "Edgedancer", "saga": "Archivo de las Tormentas", "is_secundario": true, "is_read": "unread"},
-        {"id": 20, "title": "Oathbringer", "saga": "Archivo de las Tormentas", "is_secundario": false, "is_read": "unread"},
-        {"id": 21, "title": "Dawnshard", "saga": "Archivo de las Tormentas", "is_secundario": true, "is_read": "unread"},
-        {"id": 22, "title": "Rhythm of War", "saga": "Archivo de las Tormentas", "is_secundario": false, "is_read": "unread"},
-        {"id": 23, "title": "The Lost Metal", "saga": "Mistborn", "is_secundario": false, "is_read": "unread"},
-        {"id": 24, "title": "Tress of the Emerald Sea", "saga": "Otros", "is_secundario": true, "is_read": "unread"},
-        {"id": 25, "title": "Yumi and the Nightmare Painter", "saga": "Otros", "is_secundario": true, "is_read": "unread"},
-        {"id": 26, "title": "The Sunlit Man", "saga": "Archivo de las Tormentas", "is_secundario": true, "is_read": "unread"},
-        {"id": 27, "title": "Wind and Truth", "saga": "Archivo de las Tormentas", "is_secundario": false, "is_read": "unread"},
-        {"id": 28, "title": "Isles of the Emberdark", "saga": "Otros", "is_secundario": true, "is_read": "unread"}
+        {"id": 1, "title": {"es": "Elantris", "en": "Elantris"}, "saga": {"es": "Elantris", "en": "Elantris"}, "is_secundario": false, "is_read": "unread"},
+        {"id": 2, "title": {"es": "La Esperanza de Elantris", "en": "The Hope of Elantris"}, "saga": {"es": "Elantris", "en": "Elantris"}, "is_secundario": true, "is_read": "unread"},
+        {"id": 3, "title": {"es": "El Imperio Final", "en": "The Final Empire"}, "saga": {"es": "Nacidos de la Bruma", "en": "Mistborn"}, "is_secundario": false, "is_read": "unread"},
+        {"id": 4, "title": {"es": "El Pozo de la Ascensión", "en": "The Well of Ascension"}, "saga": {"es": "Nacidos de la Bruma", "en": "Mistborn"}, "is_secundario": false, "is_read": "unread"},
+        {"id": 5, "title": {"es": "El Héroe de las Eras", "en": "The Hero of Ages"}, "saga": {"es": "Nacidos de la Bruma", "en": "Mistborn"}, "is_secundario": false, "is_read": "unread"},
+        {"id": 6, "title": {"es": "El Aliento de los Dioses", "en": "Warbreaker"}, "saga": {"es": "Otros", "en": "Others"}, "is_secundario": false, "is_read": "unread"},
+        {"id": 7, "title": {"es": "El Camino de los Reyes", "en": "The Way of Kings"}, "saga": {"es": "Archivo de las Tormentas", "en": "Stormlight Archive"}, "is_secundario": false, "is_read": "unread"},
+        {"id": 8, "title": {"es": "La Aleación de la Ley", "en": "The Alloy of Law"}, "saga": {"es": "Nacidos de la Bruma", "en": "Mistborn"}, "is_secundario": false, "is_read": "unread"},
+        {"id": 9, "title": {"es": "El Undécimo Metal", "en": "The Eleventh Metal"}, "saga": {"es": "Nacidos de la Bruma", "en": "Mistborn"}, "is_secundario": true, "is_read": "unread"},
+        {"id": 10, "title": {"es": "El Alma del Emperador", "en": "The Emperor's Soul"}, "saga": {"es": "Elantris", "en": "Elantris"}, "is_secundario": true, "is_read": "unread"},
+        {"id": 11, "title": {"es": "Sombras por Silencio en los Bosques del Infierno", "en": "Shadows for Silence In the Forest of Hell"}, "saga": {"es": "Otros", "en": "Others"}, "is_secundario": true, "is_read": "unread"},
+        {"id": 12, "title": {"es": "Palabras Radiantes", "en": "Words of Radiance"}, "saga": {"es": "Archivo de las Tormentas", "en": "Stormlight Archive"}, "is_secundario": false, "is_read": "unread"},
+        {"id": 13, "title": {"es": "Allomancer Jak", "en": "Allomancer Jak"}, "saga": {"es": "Nacidos de la Bruma", "en": "Mistborn"}, "is_secundario": true, "is_read": "unread"},
+        {"id": 14, "title": {"es": "Sombras de Identidad", "en": "Shadows of Self"}, "saga": {"es": "Nacidos de la Bruma", "en": "Mistborn"}, "is_secundario": false, "is_read": "unread"},
+        {"id": 15, "title": {"es": "Brazales de Duelo", "en": "The Bands of Mourning"}, "saga": {"es": "Nacidos de la Bruma", "en": "Mistborn"}, "is_secundario": false, "is_read": "unread"},
+        {"id": 16, "title": {"es": "Mistborn: Historia Secreta", "en": "Mistborn: Secret History"}, "saga": {"es": "Nacidos de la Bruma", "en": "Mistborn"}, "is_secundario": true, "is_read": "unread"},
+        {"id": 17, "title": {"es": "Arena Blanca", "en": "White Sand"}, "saga": {"es": "Otros", "en": "Others"}, "is_secundario": false, "is_read": "unread"},
+        {"id": 18, "title": {"es": "Ensayos de Arcanum Ilimitado", "en": "Arcanum Unbounded essays"}, "saga": {"es": "Otros", "en": "Others"}, "is_secundario": true, "is_read": "unread"},
+        {"id": 19, "title": {"es": "Danzante del Filo", "en": "Edgedancer"}, "saga": {"es": "Archivo de las Tormentas", "en": "Stormlight Archive"}, "is_secundario": true, "is_read": "unread"},
+        {"id": 20, "title": {"es": "Juramentada", "en": "Oathbringer"}, "saga": {"es": "Archivo de las Tormentas", "en": "Stormlight Archive"}, "is_secundario": false, "is_read": "unread"},
+        {"id": 21, "title": {"es": "Esquirla del Amanecer", "en": "Dawnshard"}, "saga": {"es": "Archivo de las Tormentas", "en": "Stormlight Archive"}, "is_secundario": true, "is_read": "unread"},
+        {"id": 22, "title": {"es": "El Ritmo de la Guerra", "en": "Rhythm of War"}, "saga": {"es": "Archivo de las Tormentas", "en": "Stormlight Archive"}, "is_secundario": false, "is_read": "unread"},
+        {"id": 23, "title": {"es": "El Metal Perdido", "en": "The Lost Metal"}, "saga": {"es": "Nacidos de la Bruma", "en": "Mistborn"}, "is_secundario": false, "is_read": "unread"},
+        {"id": 24, "title": {"es": "Trenza del Mar Esmeralda", "en": "Tress of the Emerald Sea"}, "saga": {"es": "Otros", "en": "Others"}, "is_secundario": true, "is_read": "unread"},
+        {"id": 25, "title": {"es": "Yumi y el Pintor de Pesadillas", "en": "Yumi and the Nightmare Painter"}, "saga": {"es": "Otros", "en": "Others"}, "is_secundario": true, "is_read": "unread"},
+        {"id": 26, "title": {"es": "El Hombre Iluminado", "en": "The Sunlit Man"}, "saga": {"es": "Archivo de las Tormentas", "en": "Stormlight Archive"}, "is_secundario": true, "is_read": "unread"},
+        {"id": 27, "title": {"es": "Viento y Verdad", "en": "Wind and Truth"}, "saga": {"es": "Archivo de las Tormentas", "en": "Stormlight Archive"}, "is_secundario": false, "is_read": "unread"},
+        {"id": 28, "title": {"es": "Islas de la Ascuaoscura", "en": "Isles of the Emberdark"}, "saga": {"es": "Otros", "en": "Others"}, "is_secundario": true, "is_read": "unread"}
       ]
     };
 
     const claveEstado = 'estadoLecturaCosmere';
+    const claveIdioma = 'idiomaCosmere';
+    
+    // Traducciones
+    const traducciones = {
+      es: {
+        titulo: "Libros de Brandon Sanderson",
+        mostrarSecundarios: "Mostrar libros secundarios",
+        idioma: "Idioma:",
+        secundario: "Secundario",
+        tituloFooter: "Cosmere - Guía de Lectura Interactiva",
+        avisoLegal: "⚠️ Aviso Legal: NO soy el autor de los libros de Brandon Sanderson. Todos los derechos sobre los libros pertenecen a Brandon Sanderson y sus editores. Solo tengo derechos sobre el código de esta aplicación web.",
+        linkReadme: "📖 Ver README completo",
+        marcaRegistrada: "Cosmere es una marca registrada de Brandon Sanderson",
+        saltoA: "→ Salto a"
+      },
+      en: {
+        titulo: "Brandon Sanderson's Books",
+        mostrarSecundarios: "Show secondary books",
+        idioma: "Language:",
+        secundario: "Secondary",
+        tituloFooter: "Cosmere - Interactive Reading Guide",
+        avisoLegal: "⚠️ Legal Notice: I am NOT the author of Brandon Sanderson's books. All rights to the books belong to Brandon Sanderson and his publishers. I only have rights to the code of this web application.",
+        linkReadme: "📖 View full README",
+        marcaRegistrada: "Cosmere is a registered trademark of Brandon Sanderson",
+        saltoA: "→ Jump to"
+      }
+    };
+    
+    let idiomaActual = localStorage.getItem(claveIdioma) || 'es';
+
+    function actualizarInterfaz() {
+      const t = traducciones[idiomaActual];
+      
+      // Actualizar elementos de la interfaz
+      document.getElementById('tituloPrincipal').textContent = t.titulo;
+      document.getElementById('textoMostrarSecundarios').textContent = t.mostrarSecundarios;
+      document.getElementById('textoIdioma').textContent = t.idioma;
+      document.getElementById('tituloFooter').textContent = t.tituloFooter;
+      document.getElementById('avisoLegal').textContent = t.avisoLegal;
+      document.getElementById('linkReadme').textContent = t.linkReadme;
+      document.getElementById('marcaRegistrada').textContent = t.marcaRegistrada;
+      
+      // Actualizar selector de idioma
+      document.getElementById('selectorIdioma').value = idiomaActual;
+      
+      // Actualizar títulos de sagas y libros
+      actualizarLibrosYSagas();
+    }
+    
+    function actualizarLibrosYSagas() {
+      const t = traducciones[idiomaActual];
+      
+      // Actualizar títulos de sagas
+      const titulosSagas = document.querySelectorAll('.saga-column h2');
+      titulosSagas.forEach(titulo => {
+        const nombreSaga = titulo.textContent;
+        // Buscar la saga correspondiente en los datos
+        const libro = datos.libros.find(l => l.saga[idiomaActual] === nombreSaga);
+        if (libro) {
+          titulo.textContent = libro.saga[idiomaActual];
+        }
+      });
+      
+      // Actualizar contenido de libros
+      const contenidosLibros = document.querySelectorAll('.book-content');
+      contenidosLibros.forEach(contenido => {
+        const textoCompleto = contenido.textContent;
+        const partes = textoCompleto.split(' - ');
+        if (partes.length >= 2) {
+          const id = parseInt(partes[0]);
+          const libro = datos.libros.find(l => l.id === id);
+          if (libro) {
+            const esSecundario = textoCompleto.includes('(Secundario)') || textoCompleto.includes('(Secondary)');
+            const sufijo = esSecundario ? ` (${t.secundario})` : '';
+            contenido.textContent = `${libro.id} - ${libro.title[idiomaActual]}${sufijo}`;
+          }
+        }
+      });
+      
+      // Limpiar flechas de navegación existentes
+      const flechasExistentes = document.querySelectorAll('.arrow');
+      flechasExistentes.forEach(flecha => {
+        if (flecha.textContent.includes('→ Salto a') || flecha.textContent.includes('→ Jump to')) {
+          flecha.remove();
+        }
+      });
+      
+      // Recrear flechas de salto
+      const librosOrdenados = [...datos.libros].sort((a, b) => a.id - b.id);
+      for (let i = 0; i < librosOrdenados.length - 1; i++) {
+        const libroActual = librosOrdenados[i];
+        const libroSiguiente = librosOrdenados[i + 1];
+        if (libroActual.saga[idiomaActual] !== libroSiguiente.saga[idiomaActual]) {
+          const textoFlecha = document.createElement('div');
+          textoFlecha.classList.add('arrow');
+          textoFlecha.textContent = `${t.saltoA} ${libroSiguiente.saga[idiomaActual]} (ID ${libroSiguiente.id})`;
+          // Buscar el contenedor de contenido dentro del elemento del libro
+          const contenidoLibro = elementosLibros[libroActual.id].querySelector('.book-content');
+          if (contenidoLibro) {
+            contenidoLibro.appendChild(textoFlecha);
+          }
+        }
+      }
+    }
+    
+    function cambiarIdioma(nuevoIdioma) {
+      idiomaActual = nuevoIdioma;
+      localStorage.setItem(claveIdioma, idiomaActual);
+      actualizarInterfaz();
+    }
 
     function cargarEstados() {
       const guardado = localStorage.getItem(claveEstado);
@@ -237,10 +358,11 @@
     // Armar la estructura de sagas
     const sagas = {};
     datos.libros.forEach(libro => {
-      if (!sagas[libro.saga]) {
-        sagas[libro.saga] = [];
+      const nombreSaga = libro.saga[idiomaActual];
+      if (!sagas[nombreSaga]) {
+        sagas[nombreSaga] = [];
       }
-      sagas[libro.saga].push(libro);
+      sagas[nombreSaga].push(libro);
     });
 
     // Contenedor de las sagas
@@ -258,7 +380,9 @@
       columnaSaga.classList.add('saga-column');
 
       const tituloSaga = document.createElement('h2');
-      tituloSaga.textContent = nombreSaga;
+      // Buscar un libro de esta saga para obtener el nombre traducido
+      const libroEjemplo = sagas[nombreSaga][0];
+      tituloSaga.textContent = libroEjemplo.saga[idiomaActual];
       columnaSaga.appendChild(tituloSaga);
 
       sagas[nombreSaga].forEach(libro => {
@@ -268,7 +392,8 @@
         // Crear contenedor para el contenido del libro
         const contenidoLibro = document.createElement('div');
         contenidoLibro.classList.add('book-content');
-        contenidoLibro.textContent = `${libro.id} - ${libro.title}${libro.is_secundario ? ' (Secundario)' : ''}`;
+        const t = traducciones[idiomaActual];
+        contenidoLibro.textContent = `${libro.id} - ${libro.title[idiomaActual]}${libro.is_secundario ? ` (${t.secundario})` : ''}`;
 
         // Agregamos la clase según el estado de lectura
         if (libro.is_read === 'read') {
@@ -355,6 +480,15 @@
     
     // Aplicar estado inicial
     toggleLibrosSecundarios();
+    
+    // Configurar selector de idioma
+    const selectorIdioma = document.getElementById('selectorIdioma');
+    selectorIdioma.addEventListener('change', (e) => {
+      cambiarIdioma(e.target.value);
+    });
+    
+    // Aplicar idioma inicial
+    actualizarInterfaz();
 
     // Ordenar todos los libros por ID
     const librosOrdenados = [...datos.libros].sort((a, b) => a.id - b.id);
@@ -365,14 +499,24 @@
       mapaIdIndice[libro.id] = indice;
     });
 
+    // Limpiar solo las flechas de navegación existentes antes de crear nuevas
+    const flechasExistentes = document.querySelectorAll('.arrow');
+    flechasExistentes.forEach(flecha => {
+      // Solo eliminar si es una flecha de navegación (contiene "Salto a" o "Jump to")
+      if (flecha.textContent.includes('→ Salto a') || flecha.textContent.includes('→ Jump to')) {
+        flecha.remove();
+      }
+    });
+    
     // Agregar el subtexto de "Salto a..." al final de cada libro que cambie de saga
     for (let i = 0; i < librosOrdenados.length - 1; i++) {
       const libroActual = librosOrdenados[i];
       const libroSiguiente = librosOrdenados[i + 1];
-      if (libroActual.saga !== libroSiguiente.saga) {
+      if (libroActual.saga[idiomaActual] !== libroSiguiente.saga[idiomaActual]) {
         const textoFlecha = document.createElement('div');
         textoFlecha.classList.add('arrow');
-        textoFlecha.textContent = `→ Salto a ${libroSiguiente.saga} (ID ${libroSiguiente.id})`;
+        const t = traducciones[idiomaActual];
+        textoFlecha.textContent = `${t.saltoA} ${libroSiguiente.saga[idiomaActual]} (ID ${libroSiguiente.id})`;
         // Buscar el contenedor de contenido dentro del elemento del libro
         const contenidoLibro = elementosLibros[libroActual.id].querySelector('.book-content');
         if (contenidoLibro) {
