@@ -1,6 +1,6 @@
 # Términos y Condiciones
 
-Última actualización: 17 de mayo de 2024
+Última actualización: 15 de septiembre de 2025
 
 Al acceder y utilizar esta aplicación web, aceptas los siguientes términos y condiciones. Si no estás de acuerdo con alguna parte, por favor no utilices el sitio.
 

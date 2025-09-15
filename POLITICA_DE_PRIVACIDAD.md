@@ -1,6 +1,6 @@
 # Política de Privacidad
 
-Última actualización: 17 de mayo de 2024
+Última actualización: 15 de septiembre de 2025
 
 Esta política describe cómo se maneja la información dentro de la aplicación web.
 
