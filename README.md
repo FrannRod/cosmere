@@ -1,5 +1,7 @@
 # Cosmere - Guía de Lectura Interactiva
 
+[📄 Términos y Condiciones](TERMINOS_Y_CONDICIONES.md) | [🔐 Política de Privacidad](POLITICA_DE_PRIVACIDAD.md)
+
 Una aplicación web interactiva para organizar y hacer seguimiento de la lectura de los libros del Cosmere de Brandon Sanderson.
 
 ## 📚 Descripción
