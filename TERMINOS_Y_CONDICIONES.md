@@ -14,7 +14,7 @@ Al acceder y utilizar esta aplicación web, aceptas los siguientes términos y c
 
 - Esta aplicación no es oficial y no está afiliada a Brandon Sanderson ni a sus editoriales.
 - Todos los derechos sobre los libros y personajes pertenecen a sus respectivos propietarios.
-- El código fuente de la aplicación se distribuye bajo licencia MIT.
+- El desarrollador se reserva los derechos del sitio en sí.
 
 ## Limitación de responsabilidad
 
