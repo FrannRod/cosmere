@@ -12,7 +12,7 @@ Esta política describe cómo se maneja la información dentro de la aplicación
 ## Uso de la información
 
 - Los datos guardados se utilizan únicamente para recordar tus preferencias y progreso de lectura.
-- Puedes eliminar esta información limpiando el almacenamiento del navegador o usando las opciones de reinicio del sitio.
+- Podés eliminar esta información limpiando el almacenamiento del navegador o usando las opciones de reinicio del sitio.
 
 ## Servicios de terceros
 
@@ -23,5 +23,5 @@ Esta política describe cómo se maneja la información dentro de la aplicación
 
 Podemos actualizar esta política en el futuro. Las modificaciones serán publicadas en este repositorio.
 
-Si tienes dudas sobre esta política, puedes abrir un issue en el repositorio.
+Si tenés dudas sobre esta política, podés abrir un issue o contactarte a cosmere@francoRodriguez.com.ar
 

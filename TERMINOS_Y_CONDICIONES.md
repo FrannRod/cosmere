@@ -2,13 +2,13 @@
 
 Última actualización: 15 de septiembre de 2025
 
-Al acceder y utilizar esta aplicación web, aceptas los siguientes términos y condiciones. Si no estás de acuerdo con alguna parte, por favor no utilices el sitio.
+Al acceder y utilizar esta aplicación web, aceptás los siguientes términos y condiciones. Si no estás de acuerdo con alguna parte, por favor no utilices el sitio.
 
 ## Uso del sitio
 
 - La aplicación se proporciona exclusivamente para uso personal y sin fines comerciales.
 - La organización de libros y el seguimiento de lectura se guardan únicamente en tu navegador mediante **LocalStorage**.
-- Eres responsable de mantener la confidencialidad y respaldo de los datos almacenados en tu dispositivo.
+- Sos responsable de mantener la confidencialidad y respaldo de los datos almacenados en tu dispositivo.
 
 ## Propiedad intelectual
 
@@ -25,5 +25,5 @@ Al acceder y utilizar esta aplicación web, aceptas los siguientes términos y c
 
 Nos reservamos el derecho de modificar estos términos en cualquier momento. Las modificaciones entrarán en vigor al publicarse en este repositorio.
 
-Para más información sobre el manejo de datos, consulta nuestra [Política de Privacidad](POLITICA_DE_PRIVACIDAD.md).
+Para más información sobre el manejo de datos, consultá nuestra [Política de Privacidad](POLITICA_DE_PRIVACIDAD.md).
 
