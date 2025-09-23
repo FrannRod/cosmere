@@ -138,6 +138,55 @@
       overflow: visible;
       pointer-events: none;
     }
+
+    .support-button {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 1500;
+    }
+
+    .support-button a {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      text-decoration: none;
+      color: #3c2f2f;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .support-button a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    .support-button img {
+      height: 36px;
+      border: 0;
+    }
+
+    .support-button span {
+      white-space: nowrap;
+    }
+
+    @media (max-width: 600px) {
+      .support-button {
+        bottom: 16px;
+        right: 16px;
+      }
+
+      .support-button a {
+        font-size: 0.85rem;
+        padding: 6px 12px;
+        gap: 8px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -160,6 +209,13 @@
         </select>
       </label>
     </div>
+  </div>
+
+  <div class="support-button">
+    <a href="https://ko-fi.com/A0A81LDMP2" target="_blank" rel="noopener noreferrer" id="kofiLink" aria-label="Invitame un café en Ko-fi" title="Invitame un café en Ko-fi">
+      <span id="kofiTexto">Invitame un café ☕</span>
+      <img id="kofiImagen" src="https://storage.ko-fi.com/cdn/kofi6.png?v=6" alt="Invitame un café en Ko-fi" height="36" loading="lazy">
+    </a>
   </div>
 
   <!-- Contenedor principal de las sagas -->
@@ -231,7 +287,11 @@
         avisoLegal: "⚠️ Aviso Legal: NO soy el autor de los libros de Brandon Sanderson. Todos los derechos sobre los libros pertenecen a Brandon Sanderson y sus editores. Solo tengo derechos sobre el código de esta aplicación web.",
         linkReadme: "📖 Ver README completo",
         marcaRegistrada: "Cosmere es una marca registrada de Brandon Sanderson",
-        saltoA: "→ Salto a"
+        saltoA: "→ Salto a",
+        kofiTexto: "Invitame un café ☕",
+        kofiAria: "Invitame un café en Ko-fi",
+        kofiTitle: "Invitame un café en Ko-fi",
+        kofiAlt: "Botón para invitarme un café en Ko-fi"
       },
       en: {
         titulo: "Brandon Sanderson's Books",
@@ -242,7 +302,11 @@
         avisoLegal: "⚠️ Legal Notice: I am NOT the author of Brandon Sanderson's books. All rights to the books belong to Brandon Sanderson and his publishers. I only have rights to the code of this web application.",
         linkReadme: "📖 View full README",
         marcaRegistrada: "Cosmere is a registered trademark of Brandon Sanderson",
-        saltoA: "→ Jump to"
+        saltoA: "→ Jump to",
+        kofiTexto: "Buy me a coffee ☕",
+        kofiAria: "Buy me a coffee on Ko-fi",
+        kofiTitle: "Support me on Ko-fi",
+        kofiAlt: "Button to support me on Ko-fi"
       }
     };
     
@@ -250,7 +314,9 @@
 
     function actualizarInterfaz() {
       const t = traducciones[idiomaActual];
-      
+
+      document.documentElement.setAttribute('lang', idiomaActual);
+
       // Actualizar elementos de la interfaz
       document.getElementById('tituloPrincipal').textContent = t.titulo;
       document.getElementById('textoMostrarSecundarios').textContent = t.mostrarSecundarios;
@@ -259,7 +325,17 @@
       document.getElementById('avisoLegal').textContent = t.avisoLegal;
       document.getElementById('linkReadme').textContent = t.linkReadme;
       document.getElementById('marcaRegistrada').textContent = t.marcaRegistrada;
-      
+
+      const kofiTexto = document.getElementById('kofiTexto');
+      const kofiLink = document.getElementById('kofiLink');
+      const kofiImagen = document.getElementById('kofiImagen');
+      if (kofiTexto && kofiLink && kofiImagen) {
+        kofiTexto.textContent = t.kofiTexto;
+        kofiLink.setAttribute('aria-label', t.kofiAria);
+        kofiLink.setAttribute('title', t.kofiTitle);
+        kofiImagen.setAttribute('alt', t.kofiAlt);
+      }
+
       // Actualizar selector de idioma
       document.getElementById('selectorIdioma').value = idiomaActual;
       

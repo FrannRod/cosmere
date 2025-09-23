@@ -22,6 +22,7 @@ Esta aplicación web permite a los lectores del Cosmere organizar visualmente to
 - **Persistencia**: Los estados de lectura y preferencias se guardan en el navegador
 - **Responsive**: Funciona en dispositivos móviles y de escritorio
 - **Interfaz táctil**: Soporte completo para dispositivos móviles con gestos táctiles
+- **Apoyo voluntario**: Botón flotante de Ko-fi para colaborar con el desarrollo del proyecto
 
 ## 🚀 Uso
 
@@ -35,6 +36,7 @@ Esta aplicación web permite a los lectores del Cosmere organizar visualmente to
 5. **Navegación visual**: Pasa el cursor sobre un libro (o toca en móviles) para ver las flechas que indican el siguiente y anterior libro en la secuencia
 6. **Indicadores de transición**: Los libros que cambian de saga muestran automáticamente "→ Salto a [Saga]" para guiarte
 7. **Persistencia**: Los estados de lectura y preferencias se guardan automáticamente en tu navegador
+8. **Apoyo voluntario**: Si querés colaborar con el proyecto, utilizá el botón flotante de Ko-fi ubicado en la esquina inferior derecha
 
 ## 📖 Libros incluidos
 

@@ -1,6 +1,6 @@
 # Política de Privacidad
 
-Última actualización: 15 de septiembre de 2025
+Última actualización: 23 de septiembre de 2025
 
 Esta política describe cómo se maneja la información dentro de la aplicación web.
 
@@ -18,6 +18,7 @@ Esta política describe cómo se maneja la información dentro de la aplicación
 
 - La aplicación no utiliza cookies de terceros, analíticas ni publicidad.
 - Los enlaces externos presentes en el sitio son responsabilidad de sus respectivos propietarios.
+- El botón de Ko-fi abre un enlace externo para colaboraciones voluntarias. Ko-fi gestiona cualquier dato que compartas en su plataforma según sus propias políticas.
 
 ## Cambios en esta política
 

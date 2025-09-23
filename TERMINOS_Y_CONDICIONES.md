@@ -1,6 +1,6 @@
 # Términos y Condiciones
 
-Última actualización: 15 de septiembre de 2025
+Última actualización: 23 de septiembre de 2025
 
 Al acceder y utilizar esta aplicación web, aceptás los siguientes términos y condiciones. Si no estás de acuerdo con alguna parte, por favor no utilices el sitio.
 
@@ -24,6 +24,12 @@ Al acceder y utilizar esta aplicación web, aceptás los siguientes términos y 
 ## Modificaciones
 
 Nos reservamos el derecho de modificar estos términos en cualquier momento. Las modificaciones entrarán en vigor al publicarse en este repositorio.
+
+## Apoyo voluntario
+
+- El sitio incluye un botón opcional que redirige a Ko-fi para realizar colaboraciones voluntarias.
+- Las contribuciones se procesan en la plataforma de Ko-fi, que cuenta con sus propios términos y condiciones.
+- No se procesa ningún pago ni dato financiero dentro de esta aplicación.
 
 Para más información sobre el manejo de datos, consultá nuestra [Política de Privacidad](POLITICA_DE_PRIVACIDAD.md).
 
