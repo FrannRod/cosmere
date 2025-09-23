@@ -71,6 +71,10 @@ La aplicación incluye todos los libros principales del Cosmere hasta 2024:
 - Preferencias de idioma y filtros se mantienen entre sesiones
 - Datos almacenados localmente en el navegador
 
+## ☕ Apoyá el proyecto
+
+Si disfrutás de esta guía y querés colaborar, podés invitarme un café a través de Ko-fi mediante el botón fijo que verás en la aplicación o visitando [https://ko-fi.com/A0A81LDMP2](https://ko-fi.com/A0A81LDMP2). Las contribuciones son completamente opcionales y ayudan a mantener y mejorar el proyecto.
+
 ## 🛠️ Tecnologías
 
 - **HTML5** - Estructura semántica

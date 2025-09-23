@@ -21,6 +21,12 @@ Al acceder y utilizar esta aplicación web, aceptás los siguientes términos y 
 - El desarrollador no garantiza la disponibilidad continua del sitio ni la ausencia de errores.
 - El uso de la aplicación es bajo tu propio riesgo. No nos hacemos responsables por pérdidas o daños derivados de su uso.
 
+## Apoyo voluntario
+
+- El sitio incluye un enlace externo a Ko-fi para permitir contribuciones opcionales.
+- Todas las colaboraciones económicas son voluntarias y no condicionan el acceso a las funcionalidades de la aplicación.
+- Al seguir el enlace de Ko-fi serás redirigido a un servicio de terceros con sus propias condiciones y políticas.
+
 ## Modificaciones
 
 Nos reservamos el derecho de modificar estos términos en cualquier momento. Las modificaciones entrarán en vigor al publicarse en este repositorio.
