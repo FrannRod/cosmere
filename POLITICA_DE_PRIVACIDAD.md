@@ -18,6 +18,7 @@ Esta política describe cómo se maneja la información dentro de la aplicación
 
 - La aplicación no utiliza cookies de terceros, analíticas ni publicidad.
 - Los enlaces externos presentes en el sitio son responsabilidad de sus respectivos propietarios.
+- Se incluye un enlace a [Ko-fi](https://ko-fi.com/) para recibir contribuciones voluntarias; si decidís utilizarlo, se aplicarán las políticas de privacidad de Ko-fi.
 
 ## Cambios en esta política
 

@@ -12,6 +12,55 @@
       background-color: #fafafa;
     }
 
+    .kofi-support {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 8px 24px rgba(31, 41, 55, 0.12);
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .kofi-support:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(31, 41, 55, 0.16);
+    }
+
+    .kofi-support a img {
+      display: block;
+      height: 36px;
+      border: 0;
+    }
+
+    .kofi-support span {
+      font-size: 0.85rem;
+      color: #1f2937;
+      font-weight: 600;
+      text-align: center;
+      line-height: 1.3;
+    }
+
+    @media (max-width: 720px) {
+      .kofi-support {
+        top: auto;
+        bottom: 20px;
+        right: 20px;
+        padding: 10px;
+      }
+
+      .kofi-support span {
+        font-size: 0.9rem;
+      }
+    }
+
     h1 {
       text-align: center;
       margin-top: 20px;
@@ -141,6 +190,12 @@
   </style>
 </head>
 <body>
+  <div class="kofi-support" aria-live="polite">
+    <a id="kofiButton" href="https://ko-fi.com/A0A81LDMP2" target="_blank" rel="noopener noreferrer">
+      <img id="kofiImage" src="https://storage.ko-fi.com/cdn/kofi6.png?v=6" alt="Apoyá el proyecto en Ko-fi">
+    </a>
+    <span id="kofiText">Apoyá el proyecto en Ko-fi</span>
+  </div>
   <h1 id="tituloPrincipal">Libros de Brandon Sanderson</h1>
 
   <!-- Controles -->
@@ -231,7 +286,10 @@
         avisoLegal: "⚠️ Aviso Legal: NO soy el autor de los libros de Brandon Sanderson. Todos los derechos sobre los libros pertenecen a Brandon Sanderson y sus editores. Solo tengo derechos sobre el código de esta aplicación web.",
         linkReadme: "📖 Ver README completo",
         marcaRegistrada: "Cosmere es una marca registrada de Brandon Sanderson",
-        saltoA: "→ Salto a"
+        saltoA: "→ Salto a",
+        kofiText: "Apoyá el proyecto en Ko-fi",
+        kofiAriaLabel: "Apoyá el proyecto invitándome un café en Ko-fi",
+        kofiAlt: "Botón para invitarme un café en Ko-fi"
       },
       en: {
         titulo: "Brandon Sanderson's Books",
@@ -242,7 +300,10 @@
         avisoLegal: "⚠️ Legal Notice: I am NOT the author of Brandon Sanderson's books. All rights to the books belong to Brandon Sanderson and his publishers. I only have rights to the code of this web application.",
         linkReadme: "📖 View full README",
         marcaRegistrada: "Cosmere is a registered trademark of Brandon Sanderson",
-        saltoA: "→ Jump to"
+        saltoA: "→ Jump to",
+        kofiText: "Support the project on Ko-fi",
+        kofiAriaLabel: "Support the project by buying me a coffee on Ko-fi",
+        kofiAlt: "Button to buy me a coffee on Ko-fi"
       }
     };
     
@@ -259,10 +320,26 @@
       document.getElementById('avisoLegal').textContent = t.avisoLegal;
       document.getElementById('linkReadme').textContent = t.linkReadme;
       document.getElementById('marcaRegistrada').textContent = t.marcaRegistrada;
-      
+
+      const kofiTextElem = document.getElementById('kofiText');
+      if (kofiTextElem) {
+        kofiTextElem.textContent = t.kofiText;
+      }
+
+      const kofiButton = document.getElementById('kofiButton');
+      if (kofiButton) {
+        kofiButton.setAttribute('aria-label', t.kofiAriaLabel);
+        kofiButton.setAttribute('title', t.kofiAriaLabel);
+      }
+
+      const kofiImage = document.getElementById('kofiImage');
+      if (kofiImage) {
+        kofiImage.setAttribute('alt', t.kofiAlt);
+      }
+
       // Actualizar selector de idioma
       document.getElementById('selectorIdioma').value = idiomaActual;
-      
+
       // Actualizar títulos de sagas y libros
       actualizarLibrosYSagas();
     }
