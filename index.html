@@ -139,6 +139,78 @@
       pointer-events: none;
     }
 
+    .language-control {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.1rem;
+    }
+
+    .language-switch {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .language-switch input {
+      position: absolute;
+      opacity: 0;
+      width: 1px;
+      height: 1px;
+    }
+
+    .language-option {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #555;
+      transition: color 0.2s ease;
+    }
+
+    .language-switch:has(input:not(:checked)) .language-option.es,
+    .language-switch:has(input:checked) .language-option.en {
+      color: #212529;
+    }
+
+    .language-slider {
+      position: relative;
+      width: 58px;
+      height: 30px;
+      border-radius: 999px;
+      background: #d6d6d6;
+      box-shadow: inset 0 0 0 1px #bbb;
+      transition: background 0.2s ease;
+    }
+
+    .language-slider::before {
+      content: "";
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      top: 3px;
+      left: 4px;
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+      transition: transform 0.2s ease;
+    }
+
+    .language-switch input:checked + .language-slider {
+      background: #007bff;
+      box-shadow: inset 0 0 0 1px #0069d9;
+    }
+
+    .language-switch input:checked + .language-slider::before {
+      transform: translateX(28px);
+    }
+
+    .language-switch input:focus-visible + .language-slider {
+      outline: 3px solid rgba(0, 123, 255, 0.35);
+      outline-offset: 3px;
+    }
+
     .support-button {
       position: fixed;
       bottom: 24px;
@@ -200,13 +272,13 @@
         <span id="textoMostrarSecundarios">Mostrar libros secundarios</span>
       </label>
     </div>
-    <div>
-      <label style="display: inline-flex; align-items: center; gap: 8px; font-size: 1.1rem;">
-        <span id="textoIdioma">Idioma:</span>
-        <select id="selectorIdioma" style="padding: 5px 10px; font-size: 1rem; border-radius: 4px; border: 1px solid #ccc;">
-          <option value="es">Español</option>
-          <option value="en">English</option>
-        </select>
+    <div class="language-control">
+      <span id="textoIdioma">Idioma:</span>
+      <label class="language-switch" for="selectorIdioma">
+        <span class="language-option es">ES</span>
+        <input type="checkbox" id="selectorIdioma" role="switch" aria-label="Cambiar idioma">
+        <span class="language-slider" aria-hidden="true"></span>
+        <span class="language-option en">EN</span>
       </label>
     </div>
   </div>
@@ -337,8 +409,10 @@
         kofiImagen.setAttribute('alt', t.kofiAlt);
       }
 
-      // Actualizar selector de idioma
-      document.getElementById('selectorIdioma').value = idiomaActual;
+      // Actualizar slider de idioma
+      const selectorIdioma = document.getElementById('selectorIdioma');
+      selectorIdioma.checked = idiomaActual === 'en';
+      selectorIdioma.setAttribute('aria-label', `${t.idioma} ${idiomaActual === 'es' ? 'Español' : 'English'}`);
       
       // Actualizar títulos de sagas y libros
       actualizarLibrosYSagas();
@@ -348,12 +422,11 @@
       const t = traducciones[idiomaActual];
       
       // Actualizar títulos de sagas
-      const titulosSagas = document.querySelectorAll('.saga-column h2');
-      titulosSagas.forEach(titulo => {
-        const nombreSaga = titulo.textContent;
-        // Buscar la saga correspondiente en los datos
-        const libro = datos.libros.find(l => l.saga[idiomaActual] === nombreSaga);
-        if (libro) {
+      const columnasSagas = document.querySelectorAll('.saga-column');
+      columnasSagas.forEach(columna => {
+        const libro = datos.libros.find(l => l.id === parseInt(columna.dataset.libroSagaId));
+        const titulo = columna.querySelector('h2');
+        if (libro && titulo) {
           titulo.textContent = libro.saga[idiomaActual];
         }
       });
@@ -367,8 +440,7 @@
           const id = parseInt(partes[0]);
           const libro = datos.libros.find(l => l.id === id);
           if (libro) {
-            const esSecundario = textoCompleto.includes('(Secundario)') || textoCompleto.includes('(Secondary)');
-            const sufijo = esSecundario ? ` (${t.secundario})` : '';
+            const sufijo = libro.is_secundario ? ` (${t.secundario})` : '';
             contenido.textContent = `${libro.id} - ${libro.title[idiomaActual]}${sufijo}`;
           }
         }
@@ -457,8 +529,9 @@
       columnaSaga.classList.add('saga-column');
 
       const tituloSaga = document.createElement('h2');
-      // Buscar un libro de esta saga para obtener el nombre traducido
+      // Guardar un libro de referencia permite traducir el título aunque cambie el texto visible.
       const libroEjemplo = sagas[nombreSaga][0];
+      columnaSaga.dataset.libroSagaId = libroEjemplo.id;
       tituloSaga.textContent = libroEjemplo.saga[idiomaActual];
       columnaSaga.appendChild(tituloSaga);
 
@@ -558,10 +631,10 @@
     // Aplicar estado inicial
     toggleLibrosSecundarios();
     
-    // Configurar selector de idioma
+    // Configurar slider de idioma
     const selectorIdioma = document.getElementById('selectorIdioma');
     selectorIdioma.addEventListener('change', (e) => {
-      cambiarIdioma(e.target.value);
+      cambiarIdioma(e.target.checked ? 'en' : 'es');
     });
     
     // Aplicar idioma inicial
