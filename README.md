@@ -40,14 +40,15 @@ Esta aplicación web permite a los lectores del Cosmere organizar visualmente to
 
 ## 📖 Libros incluidos
 
-La aplicación incluye todos los libros principales del Cosmere hasta 2024:
+La aplicación incluye los libros principales y obras destacadas del Cosmere publicados o anunciados hasta 2026:
 
 - **Elantris** (incluye "La esperanza de Elantris" y "El alma del emperador")
 - **Nacidos de la bruma** (Era 1 y 2, incluye "Historia secreta" y otros relatos)
 - **Archivo de las Tormentas** (incluye "Danzante del filo", "Esquirla del amanecer")
-- **Otros libros** (Warbreaker, White Sand, Tress, Yumi, El hombre iluminado, etc.)
+- **Las andanzas de Hoid** (Tress of the Emerald Sea, Yumi and the Nightmare Painter, The Fires of December)
+- **Otros libros y novelas independientes** (Warbreaker, White Sand, El hombre iluminado, Islas de la Ascuaoscura, etc.)
 
-**Total**: 28 libros organizados cronológicamente por orden de publicación recomendado.
+**Total**: 29 libros organizados cronológicamente por orden de publicación recomendado.
 
 ## ✨ Características Avanzadas
 
